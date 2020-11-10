@@ -8,9 +8,9 @@ const isAuthenticated = require('../Middlewares/isAuthenticated');
 // Cloudinary config
 
 cloudinary.config({
-    cloud_name: "dzxe2cdfs",
-    api_key: "825159332619557",
-    api_secret: "1jd16qagPJfpQMVFkcYWXnvE4Ps"
+    cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
+    api_key: process.env.CLOUDINARY_API_KEY,
+    api_secret: process.env.CLOUDINARY_API_SECRET
   });
 
 // Model import
