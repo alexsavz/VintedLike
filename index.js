@@ -1,11 +1,13 @@
-require('dotenv').config();
 const express = require('express');
 const mongoose = require('mongoose');
 const formidable = require('express-formidable');
-
+const cors = require("cors");
 
 const app = express();
 app.use(formidable());
+app.use(cors());
+
+require('dotenv').config();
 
 mongoose.connect(process.env.MONGODB_URI, {
     useUnifiedTopology: true,
