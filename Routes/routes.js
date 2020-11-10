@@ -5,6 +5,7 @@ const SHA256 = require("crypto-js/sha256");
 const encBase64 = require("crypto-js/enc-base64");
 const cloudinary = require('cloudinary').v2;
 const isAuthenticated = require('../Middlewares/isAuthenticated');
+
 // Cloudinary config
 
 cloudinary.config({
