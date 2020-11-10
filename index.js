@@ -21,6 +21,10 @@ app.use(userRoute);
 const offersRoute = require('./Routes/offers');
 app.use(offersRoute);
 
+app.get("/", (req, res) => {
+  res.json("Bienvenue sur l'API de Vinted");
+});
+
 app.all("*", (req, res) => {
     res.status(400).json({
       error: error.message,
