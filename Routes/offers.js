@@ -7,7 +7,7 @@ const Offer = require('../Models/Offer');
 
 // ROUTES OFFERS
 
-router.get('/offers', isAuthenticated, async (req, res) => {
+router.get('/offers', async (req, res) => {
 
     const regexTitle = new RegExp(req.query.title, "i");
     let priceMin = 0;

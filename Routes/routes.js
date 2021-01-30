@@ -163,7 +163,7 @@ try {
       });
     offer.product_image = result;
 
-    await await offer.save();
+    await offer.save();
 
     res.status(200).json(offer);
 } catch (error) {
