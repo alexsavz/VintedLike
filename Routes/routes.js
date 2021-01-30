@@ -157,14 +157,13 @@ try {
         owner: req.user
     });
 
-    if(req.files.picture.path){
-        const result = await cloudinary.uploader.upload(pictureToUpload, {
-            folder: `/vinted/offers/${offer.id}`,
-            public_id: req.fields.title,
-          });
-        offer.product_image = result;
-    }
-    
+    // if(req.files.picture.path){
+    //     const result = await cloudinary.uploader.upload(pictureToUpload, {
+    //         folder: `/vinted/offers/${offer.id}`,
+    //         public_id: req.fields.title,
+    //       });
+    //     offer.product_image = result;
+    // }
     await offer.save();
 
     res.status(200).json(offer);
