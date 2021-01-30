@@ -132,7 +132,7 @@ console.log("On rentre dans la route...");
 console.log("Le user qui fait la requête : ", req.user);
 try {
     // FILES
-    const pictureToUpload = req.files.picture.path;
+    // const pictureToUpload = req.files.picture.path;
 
     // CREATE 
     const offer = new Offer({
@@ -157,12 +157,14 @@ try {
         owner: req.user
     });
 
-    const result = await cloudinary.uploader.upload(pictureToUpload, {
-        folder: `/vinted/offers/${offer.id}`,
-        public_id: req.fields.title,
-      });
-    offer.product_image = result;
-
+    if(req.files.picture.path){
+        const result = await cloudinary.uploader.upload(pictureToUpload, {
+            folder: `/vinted/offers/${offer.id}`,
+            public_id: req.fields.title,
+          });
+        offer.product_image = result;
+    }
+    
     await offer.save();
 
     res.status(200).json(offer);
